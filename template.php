@@ -24,12 +24,17 @@ function memberdirectoryportal_member_template( $template ) {
 }
 
 
-// function memberdirectoryportal_archive_template( $archive_template ) {
-//   echo is_post_type_archive ( 'mdp_members' );
-//   echo "hello world";
-//   if ( is_post_type_archive ( 'mdp_members' ) ) {
-//       $archive_template = __DIR__ . '/templates/archive/member.php';
-//   }
-//   return $archive_template;
-// }
-// add_filter( 'archive_template', 'memberdirectoryportal_archive_template' ) ;
+function memberdirectoryportal_archive_template( $archive_template ) {
+  $obj = get_queried_object();
+  global $apidata;
+  $apidata = get_term_meta( $obj->term_id, 'mdp_data', true);
+  $apidata = json_decode($apidata);
+  if ( in_array( $obj->taxonomy, array( 'mdp_members_category', 'mdp_members_tag') ) ) {
+    $archive_template = __DIR__ . '/templates/archive/member-archive.php';
+  }
+  if ( str_contains( $obj->taxonomy, 'mdp_channel_' ) ) {
+    $archive_template = __DIR__ . '/templates/archive/channel-archive.php';
+  }
+  return $archive_template;
+}
+add_filter( 'archive_template', 'memberdirectoryportal_archive_template' ) ;

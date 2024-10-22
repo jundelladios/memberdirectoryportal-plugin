@@ -29,6 +29,7 @@ function memberdirectoryportal_channels_posttypes() {
       'public' => true,
       'has_archive' => true,
       'show_in_rest' => true,
+      'query_var' => true,
       'rest_base' => 'mdp_members',
       'supports' => array('title', 'editor', 'custom-fields'),
       'rewrite' => array(

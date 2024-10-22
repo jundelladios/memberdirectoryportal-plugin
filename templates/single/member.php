@@ -14,7 +14,6 @@ wp_head();
     <div class="mdp-panel">
       <div class="mdp-header mdp-padding mbp-border-b0 ">
         <h4 class="mdp-title"><?php echo $member->company; ?></h4>
-        <p>Mon - Fri 8:30 AM - 5:00 PM</p>
       </div>
     </div>
   </div>
