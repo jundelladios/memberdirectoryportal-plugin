@@ -3,7 +3,7 @@ wp_head();
 ?>
 
 <div class="mdp-archive-title mdp-padding">
-  <h1 class="mdp-textcenter"><?php echo single_term_title(); ?></h1>
+  <h1 class="mdp-textcenter"><?php echo single_term_title("", false); ?></h1>
 </div>
 
 <div class="mdp mdp-container">
@@ -18,7 +18,12 @@ wp_head();
   </div>
 
   <?php else : ?>
-  <p><?php _e('Sorry, no ' . strtolower(single_term_title()) . ' matched your criteria.'); ?></p>
+  <p class="mdp-textcenter">
+    <?php 
+    $lowertermtitle = strtolower(single_term_title("", false) ?: "");
+    echo "Sorry, no " . $lowertermtitle . " matched your criteria."; 
+    ?>
+  </p>
   <?php endif; ?>
 </div>
 
