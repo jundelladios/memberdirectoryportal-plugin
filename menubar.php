@@ -21,6 +21,7 @@ function memberdirectoryportal_adminbar( $wp ) {
 
   if(isset($response->integration->group->location_id)) {
     update_option( 'mdp_location_id', $response->integration->group->location_id );
+    update_option( 'mdp_domain', $response->domain );
   }
 
   $wp->add_node( $args );
@@ -38,6 +39,10 @@ function memberdirectoryportal_get_portaldomain() {
   if(defined('MDP_DEVELOPMENT')) {
     return "http://localhost:3000";
   }
-  $locationId = get_option( 'mdp_location_id' );
-  return "https://$locationId.member-directoryportal.com";
+
+  $domain = get_option( 'mdp_domain' );
+  if($domain) {
+    return $domain;
+  }
+  return "https://member-directoryportal.com";
 }
