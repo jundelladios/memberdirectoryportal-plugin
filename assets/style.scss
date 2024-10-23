@@ -11,6 +11,8 @@
   width: 100%;
   margin: 0 auto;
   max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .mdp-mb5 {
@@ -200,4 +202,44 @@
 
 .mdp-textsm {
   font-size: 12px;
+}
+
+.mdp-event-archive-list {
+  display: flex;
+  gap: 20px;
+  .mdp-eventarchive-date {
+    width: 100%;
+    max-width: 200px;
+    color: #fff;
+    background: var(--mdp-primary);
+    text-align: center;
+  }
+  .mdp-eventarchive-description {
+    flex: 1;
+  }
+  .mdp-eventarchive-location {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .mdp-event-date {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 992px) {
+    display: block;
+
+    .mdp-eventarchive-date,
+    .mdp-eventarchive-description,
+    .mdp-eventarchive-location {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.mdp-link-title {
+  * {
+    color: var(--mdp-primary)!important;
+  }
 }
