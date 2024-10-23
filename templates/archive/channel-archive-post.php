@@ -60,7 +60,7 @@ $tagTerm = $post_type . "_tag";
             trigger="click"
             inline
             iCalFileName="<?php echo sanitize_title( $postapidata->title ); ?>"
-          ></<add-to-calendar-button>
+          ></add-to-calendar-button>
         </p>
       </div>
     </div>

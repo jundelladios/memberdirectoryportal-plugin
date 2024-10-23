@@ -66,7 +66,7 @@ wp_head();
               trigger="click"
               inline
               iCalFileName="<?php echo sanitize_title( $apidata->title ); ?>"
-            ></<add-to-calendar-button>
+            ></add-to-calendar-button>
           </div>
         </div>
       </div>
