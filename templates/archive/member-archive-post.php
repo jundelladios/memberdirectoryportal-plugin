@@ -10,7 +10,9 @@ $tagTerm = "mdp_members_tag";
 
 <div class="mdp-panel mdp-mb5 mdp-list">
   <div class="mdp-padding">
-    <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+    <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
+      <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+    </a>
     <div class="mdp-info mdp-padding mdp-py0">
       <div>
         <p class="mdp-wicon">

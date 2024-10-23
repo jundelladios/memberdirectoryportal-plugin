@@ -38,3 +38,13 @@ function memberdirectoryportal_archive_template( $archive_template ) {
   return $archive_template;
 }
 add_filter( 'archive_template', 'memberdirectoryportal_archive_template' ) ;
+
+
+function memberdirectoryportal_exerpt( $text="", $more=null, $num_words = 20, $ending="..." ) {
+  global $post;
+  $excerpt = strip_shortcodes( $text );
+  $excerpt = wp_trim_words( $excerpt, $num_words, $ending );
+  $moreText = $more ?: 'Continue to ' . get_the_title( $post->ID );
+  $excerpt .= '<p><a href="' . get_permalink( $post ) . '" class="mdp-link" aria-label="' . $moreText . '" title="' . $moreText . '">' . $moreText . '</a></p>';
+  return $excerpt;
+}

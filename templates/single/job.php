@@ -14,6 +14,7 @@ $posttype = 'mdp_channel_' . $channelPost->ID;
 $categoryTerm = $posttype."_category";
 $tagTerm = $posttype."_tag";
 $locationAddress = $apidata->address1 . " " . $apidata->city . ", " . $apidata->country . " " . $apidata->postal_code;
+$mapslug = "post-map";
 wp_head(); 
 ?>
 

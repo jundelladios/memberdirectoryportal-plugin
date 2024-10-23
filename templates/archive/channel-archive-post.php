@@ -20,13 +20,60 @@ $tagTerm = $post_type . "_tag";
   <?php 
   if($postapidata->event) {
     // event
-    echo "event";
+    $event = $postapidata->event;
+    ?>
+    <div class="mdp-padding mdp-event-archive-list">
+      <div class="mdp-eventarchive-date mdp-padding">
+        <p class="mdp-event-date"><?php echo date('j', strtotime($event->start_date)); ?></p>
+        <p class="mdp-event-month"><?php echo date('F', strtotime($event->start_date)); ?></p>
+        <p class="mdp-event-year"><?php echo date('Y', strtotime($event->start_date)); ?></p>
+      </div>
+      <div class="mdp-eventarchive-description">
+        <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
+          <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+        </a>
+        <p><?php echo memberdirectoryportal_exerpt($postapidata->caption); ?></p>
+      </div>
+      <div class="mdp-eventarchive-location">
+        <p>
+          <i class="fa-solid fa-location-dot"></i>
+          <?php 
+          echo $postapidata->address1 . " " . $postapidata->city . ", " . $postapidata->country . " " . $postapidata->postal_code;
+          ?>
+        </p>
+        <p>
+          <a href="http://www.google.com/maps?daddr=<?php echo $postapidata->lat; ?>,<?php echo $postapidata->lng; ?>" class="mdp-link mdp-wicon" target="_blank">
+          <i class="fa-solid fa-plus"></i> Google Map
+          </a>
+        </p>
+
+        <p class="mdp-mt5">
+          <add-to-calendar-button
+            name="<?php echo $postapidata->title; ?>"
+            description="<?php echo $postapidata->caption; ?>"
+            startDate="<?php echo date('Y-m-d', strtotime($event->start_date)); ?>"
+            endDate="<?php echo date('Y-m-d', strtotime($event->end_date)); ?>"
+            startTime="<?php echo date('H:s', strtotime($event->start_date)); ?>"
+            endTime="<?php echo date('H:s', strtotime($event->end_date)); ?>"
+            location="<?php echo $locationAddress; ?>"
+            options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
+            trigger="click"
+            inline
+            iCalFileName="<?php echo sanitize_title( $postapidata->title ); ?>"
+          ></<add-to-calendar-button>
+        </p>
+      </div>
+    </div>
+
+    <?php
   } else if ($postapidata->job) {
     // job
     $job = $postapidata->job;
     ?>
     <div class="mdp-padding">
-      <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+      <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
+        <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+      </a>
       <p><?php echo $postapidata->caption; ?></p>
 
       <div class="mdp-mb5">
@@ -81,7 +128,9 @@ $tagTerm = $post_type . "_tag";
     $ads = $postapidata->advertisement;
     ?>
     <div class="mdp-padding">
-      <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+      <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
+        <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
+      </a>
       <p class="mdp-italic"><?php echo $ads->tagline; ?></p>
       <p><?php echo $postapidata->caption; ?></p>
     </div>
@@ -90,7 +139,7 @@ $tagTerm = $post_type . "_tag";
     // normal post
     ?>
     <div class="mdp-padding">
-      <p><?php echo $postapidata->caption; ?></p>
+      <p><?php echo memberdirectoryportal_exerpt($postapidata->caption, "Continue to this post &#xbb;", 60); ?></p>
     </div>
     <?php
   }

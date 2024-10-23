@@ -24,7 +24,7 @@ if( (isset( $apilocation->lat ) && isset( $apilocation->lng )) && (!empty( $apil
     </div>
 
     <div>
-      <iframe src="<?php echo memberdirectoryportal_get_portaldomain() . "/embeds/post-map/" . $apilocation->id; ?>" style="width:100%;height:400px;border:0;" width="100%" height="400px">
+      <iframe src="<?php echo memberdirectoryportal_get_portaldomain() . "/embeds/$mapslug/" . $apilocation->id; ?>" style="width:100%;height:400px;border:0;" width="100%" height="400px">
       </iframe>
     </div>
   </div>
