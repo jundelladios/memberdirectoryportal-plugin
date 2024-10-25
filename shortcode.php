@@ -62,11 +62,18 @@ function memberdirectoryportal_feed_shortcode($atts) {
   $atts = shortcode_atts(
     array(
       'limit' => 5,
-      'post_type' => null
+      'post_type' => null,
+      'pagination' => false
     ),
   $atts);
 
   if(!$atts['post_type']) { return ""; }
+
+  if($atts['pagination']) {
+    ob_start();
+      include MDP_PLUGIN_DIR . '/templates/post-feed-pagination-sc.php';
+    return ob_get_clean();
+  }
 
   $posts = get_posts(array(
     'post_type' => $atts['post_type'],
