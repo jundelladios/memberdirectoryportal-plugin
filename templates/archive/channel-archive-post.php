@@ -14,6 +14,7 @@ $postchannel = $postChannels[0];
 $post_type = 'mdp_channel_' . $postchannel->ID;
 $categoryTerm = $post_type . "_category";
 $tagTerm = $post_type . "_tag";
+$locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $postapidata->country . " " . $postapidata->postal_code;
 ?>
 
 <div class="mdp-panel mdp-mb5 mdp-list">
@@ -151,4 +152,3 @@ $tagTerm = $post_type . "_tag";
 </div>
 
 <?php
-//echo the_title();
