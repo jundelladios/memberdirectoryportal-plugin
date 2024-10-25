@@ -33,9 +33,16 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
 
   $atts = shortcode_atts(
     array(
-      'limit' => 5
+      'limit' => 5,
+      'pagination' => false
     ),
   $atts);
+
+  if($atts['pagination']) {
+    ob_start();
+      include MDP_PLUGIN_DIR . '/templates/post-member-pagination-sc.php';
+    return ob_get_clean();
+  }
 
   $posts = get_posts(array(
     'post_type' => 'mdp_members',
