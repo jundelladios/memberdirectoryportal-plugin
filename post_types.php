@@ -43,7 +43,7 @@ function memberdirectoryportal_channels_posttypes() {
     'mdp_members',
     array(
       'hierarchical' => true,
-      'label' => 'Member Categories',
+      'label' => 'Categories',
       'query_var' => true,
       'show_in_rest' => true,
       'rewrite' => array(
@@ -59,7 +59,7 @@ function memberdirectoryportal_channels_posttypes() {
     'mdp_members_tag',
     'mdp_members',
     array(
-      'label' => 'Member Tags',
+      'label' => 'Tags',
       'query_var' => true,
       'show_in_rest' => true,
       'rewrite' => array(
@@ -102,7 +102,7 @@ function memberdirectoryportal_channels_posttypes() {
       $posttype,
       array(
         'hierarchical' => true,
-        'label' => $posttypes->post_title . ' Categories',
+        'label' => 'Categories',
         'query_var' => true,
         'show_in_rest' => true,
         'rewrite' => array(
@@ -118,7 +118,7 @@ function memberdirectoryportal_channels_posttypes() {
       $posttype."_tag",
       $posttype,
       array(
-        'label' => $posttypes->post_title . ' Tags',
+        'label' => 'Tags',
         'query_var' => true,
         'show_in_rest' => true,
         'rewrite' => array(
