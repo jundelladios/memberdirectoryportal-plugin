@@ -114,7 +114,7 @@ $website = get_query_var("website");
       </div>
 
       <div class="mdp-flex mdp-justify-end mdp-gap5">
-        <a href="<?php echo home_url( $wp->request ); ?>" class="mdp-wicon mdp-button secondary mdp-link">
+        <a href="<?php echo $atts['redirect']; ?>" class="mdp-wicon mdp-button secondary mdp-link">
           <i class="fa-solid fa-magnifying-glass"></i>
           Reset Filters
           </a>

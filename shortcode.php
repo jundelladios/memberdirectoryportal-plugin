@@ -133,7 +133,7 @@ function memberdirectoryportal_feed_filter_channel($atts) {
   $atts = shortcode_atts(
     array(
       'post_type' => null,
-      'redirect' => "/"
+      'redirect' => home_url( $wp->request )
     ),
   $atts);
   if(!$atts['post_type']) { return ""; }
