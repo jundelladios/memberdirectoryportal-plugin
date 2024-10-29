@@ -111,7 +111,8 @@ function memberdirectoryportal_member_terms_shortcode($atts) {
   if(!$atts['taxonomy']) { return ""; }
 
   $terms = get_terms(array(
-    'taxonomy' => $atts['taxonomy']
+    'taxonomy' => $atts['taxonomy'],
+    'hide_empty' => false
   ));
   ob_start();
   echo '<div class="mdp mdp-container">';

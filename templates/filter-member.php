@@ -3,11 +3,13 @@
 global $wp;
 
 $categories = get_terms(array(
-  'taxonomy' => "mdp_members_category"
+  'taxonomy' => "mdp_members_category",
+  'hide_empty' => false
 ));
 
 $tags = get_terms(array(
-  'taxonomy' => "mdp_members_tag"
+  'taxonomy' => "mdp_members_tag",
+  'hide_empty' => false
 ));
 
 $searchCategory = get_query_var("categories");

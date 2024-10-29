@@ -3,11 +3,13 @@
 global $wp;
 
 $categories = get_terms(array(
-  'taxonomy' => $atts['post_type'] . "_category"
+  'taxonomy' => $atts['post_type'] . "_category",
+  'hide_empty' => false
 ));
 
 $tags = get_terms(array(
-  'taxonomy' => $atts['post_type'] . "_tag"
+  'taxonomy' => $atts['post_type'] . "_tag",
+  'hide_empty' => false
 ));
 
 $searchCategory = get_query_var("categories");
