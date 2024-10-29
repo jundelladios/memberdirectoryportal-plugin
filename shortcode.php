@@ -33,7 +33,7 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
 
   $atts = shortcode_atts(
     array(
-      'limit' => 5,
+      'limit' => get_option( 'posts_per_page' ),
       'pagination' => false
     ),
   $atts);
@@ -68,7 +68,7 @@ function memberdirectoryportal_feed_shortcode($atts) {
 
   $atts = shortcode_atts(
     array(
-      'limit' => 5,
+      'limit' => get_option( 'posts_per_page' ),
       'post_type' => null,
       'pagination' => false
     ),
@@ -124,3 +124,35 @@ function memberdirectoryportal_member_terms_shortcode($atts) {
   return ob_get_clean();
 }
 add_shortcode('mdpsc_terms', 'memberdirectoryportal_member_terms_shortcode');
+
+
+
+
+
+function memberdirectoryportal_feed_filter_channel($atts) {
+  $atts = shortcode_atts(
+    array(
+      'post_type' => null,
+      'redirect' => "/"
+    ),
+  $atts);
+  if(!$atts['post_type']) { return ""; }
+  ob_start();
+  include MDP_PLUGIN_DIR . '/templates/filter-channel.php';
+  return ob_get_clean();
+}
+add_shortcode('mdpsc_filter_channel', 'memberdirectoryportal_feed_filter_channel');
+
+
+function memberdirectoryportal_feed_filter_member($atts) {
+  global $wp;
+  $atts = shortcode_atts(
+    array(
+      'redirect' => home_url( $wp->request )
+    ),
+  $atts);
+  ob_start();
+  include MDP_PLUGIN_DIR . '/templates/filter-member.php';
+  return ob_get_clean();
+}
+add_shortcode('mdpsc_filter_member', 'memberdirectoryportal_feed_filter_member');

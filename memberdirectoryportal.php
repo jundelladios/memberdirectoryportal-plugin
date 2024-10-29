@@ -75,7 +75,10 @@ require_once MDP_PLUGIN_DIR . '/hooks/channel_delete_tag.php';
 require_once MDP_PLUGIN_DIR . '/hooks/post_upsert.php';
 
 require_once MDP_PLUGIN_DIR . '/hooks/post_delete.php';
-  
+
+require_once MDP_PLUGIN_DIR . '/queryvars.php';
+
+require_once MDP_PLUGIN_DIR . '/api.php';
 
 require_once MDP_PLUGIN_DIR . '/webhook.php';
 
