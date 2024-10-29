@@ -10,8 +10,8 @@ $tags = get_terms(array(
   'taxonomy' => $atts['post_type'] . "_tag"
 ));
 
-$categories = get_query_var("categories");
-$tags = get_query_var("tags");
+$searchCategory = get_query_var("categories");
+$searchTag = get_query_var("tags");
 $search = get_query_var("search");
 
 $address = get_query_var("address");

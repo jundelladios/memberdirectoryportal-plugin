@@ -127,6 +127,7 @@ add_shortcode('mdpsc_terms', 'memberdirectoryportal_member_terms_shortcode');
 
 
 function memberdirectoryportal_feed_filter_channel($atts) {
+  global $wp;
   $atts = shortcode_atts(
     array(
       'post_type' => null,
