@@ -126,9 +126,6 @@ function memberdirectoryportal_member_terms_shortcode($atts) {
 add_shortcode('mdpsc_terms', 'memberdirectoryportal_member_terms_shortcode');
 
 
-
-
-
 function memberdirectoryportal_feed_filter_channel($atts) {
   $atts = shortcode_atts(
     array(
