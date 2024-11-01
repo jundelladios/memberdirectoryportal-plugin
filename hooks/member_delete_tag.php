@@ -19,6 +19,10 @@ function memberdirectoryportal_delete_member_tag( $payload ) {
   if(count($terms)) {
     $term = $terms[0];
     wp_delete_term( $term->term_id, $taxonomy );
+
+    // clean cache
+    clean_taxonomy_cache( $taxonomy );
+    memberdirectoryportal_clean_shortcode_cache("mdpsc_filter_member");
   }
 
   return new WP_REST_Response(array('success' => "OK"), 200);

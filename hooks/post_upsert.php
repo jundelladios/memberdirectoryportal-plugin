@@ -56,9 +56,9 @@ function memberdirectoryportal_post_upsert( $payload ) {
     foreach( $categories as $cat ) {
       $ids[] = $cat['channel_category']['id'];
     }
-    $taxonomy = $posttype."_category";
+    $taxonomyCat = $posttype."_category";
     $metakey = "mdp_channel_category_id";
-    memberdirectoryportal_post_taxonomy_set( $post_id, $ids, $metakey, $taxonomy );
+    memberdirectoryportal_post_taxonomy_set( $post_id, $ids, $metakey, $taxonomyCat );
     
     // tags
     $tags = $payload['tags'];
@@ -66,15 +66,21 @@ function memberdirectoryportal_post_upsert( $payload ) {
     foreach( $tags as $cat ) {
       $ids[] = $cat['channel_tag']['id'];
     }
-    $taxonomy = $posttype."_tag";
+    $taxonomyTag = $posttype."_tag";
     $metakey = "mdp_channel_tag_id";
-    memberdirectoryportal_post_taxonomy_set( $post_id, $ids, $metakey, $taxonomy );
+    memberdirectoryportal_post_taxonomy_set( $post_id, $ids, $metakey, $taxonomyTag );
 
     update_post_meta( $post_id, $metapostkey, $payload['id'] );
     update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
 
     // post meta setter
     memberdirectoryportal_mpdata_postmeta( $post_id, $payload );
+
+    // clear caches
+    clean_post_cache( $post_id );
+    clean_taxonomy_cache( $taxonomyCat );
+    clean_taxonomy_cache( $taxonomyTag );
+    memberdirectoryportal_clean_shortcode_cache('mdpsc_feed');
 
     return new WP_REST_Response(array('success' => "POST ID: " . $post_id), 200);
   }

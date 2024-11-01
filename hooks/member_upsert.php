@@ -61,9 +61,14 @@ function memberdirectoryportal_upsert_member( $payload ) {
     update_post_meta( $post_id, 'mdp_member_id', $payload['id'] );
     update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
 
-
     // post meta setter
     memberdirectoryportal_mpdata_postmeta( $post_id, $payload );
+
+    // clear caches
+    clean_post_cache( $post_id );
+    clean_taxonomy_cache( "mdp_members_category" );
+    clean_taxonomy_cache( "mdp_members_tag" );
+    memberdirectoryportal_clean_shortcode_cache('mdpsc_member_feed');
 
     return new WP_REST_Response(array('success' => "POST ID: " . $post_id), 200);
   }

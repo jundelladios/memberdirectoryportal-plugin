@@ -25,6 +25,13 @@ function memberdirectoryportal_post_delete( $payload ) {
   if(count($posts)) {
     $post = $posts[0];
     wp_delete_post( $post->ID, true );
+
+    // clear caches
+    $taxonomyCat = $posttype."_category";
+    $taxonomyTag = $posttype."_tag";
+    clean_taxonomy_cache( $taxonomyCat );
+    clean_taxonomy_cache( $taxonomyTag );
+    memberdirectoryportal_clean_shortcode_cache('mdpsc_feed');
   }
 
   return new WP_REST_Response(array('success' => "OK"), 200);

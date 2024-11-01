@@ -31,6 +31,10 @@ function memberdirectoryportal_delete_channel_category( $payload ) {
     if(count($terms)) {
       $term = $terms[0];
       wp_delete_term( $term->term_id, $taxonomy );
+
+      // clean cache
+      clean_taxonomy_cache( $taxonomy );
+      memberdirectoryportal_clean_shortcode_cache("mdpsc_filter_channel");
     }
   }
 

@@ -42,6 +42,11 @@ function memberdirectoryportal_upsert_member_tag( $payload ) {
   if($termId) {
     update_term_meta( $termId, $metakey, $payload['id'] );
     update_term_meta( $termId, "mdp_data", json_encode($payload) );
+
+    // clean cache
+    clean_term_cache( $termId, $taxonomy );
+    memberdirectoryportal_clean_shortcode_cache("mdpsc_filter_member");
+
     return new WP_REST_Response(array('success' => "TERM ID: " . $termId), 200);
   }
 

@@ -155,3 +155,15 @@ function memberdirectoryportal_feed_filter_member($atts) {
   return ob_get_clean();
 }
 add_shortcode('mdpsc_filter_member', 'memberdirectoryportal_feed_filter_member');
+
+
+function memberdirectoryportal_clean_shortcode_cache( $shortcode = "mdpsc_" ) {
+  global $wpdb;
+  $posts = $wpdb->get_results("SELECT ID FROM {$wpdb->posts} WHERE post_content LIKE '%[{$shortcode}%'", ARRAY_A);
+  foreach($posts as $postsc) {
+    $postscId = (int) $postsc['ID'];
+    if(function_exists('clean_post_cache')) {
+      clean_post_cache($postscId);
+    }
+  }
+}

@@ -34,6 +34,9 @@ function memberdirectoryportal_upsert_channel( $payload ) {
   if($post_id) {
     update_post_meta( $post_id, 'mdp_channel_id', $payload['id'] );
     update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
+
+    clean_post_cache( $post_id );
+
     return new WP_REST_Response(array('success' => "POST ID: " . $post_id), 200);
   }
 
