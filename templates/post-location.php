@@ -18,7 +18,7 @@ if( (isset( $apilocation->lat ) && isset( $apilocation->lng )) && (!empty( $apil
       </div>
       <div>
         <p>
-          <a href="http://www.google.com/maps?daddr=<?php echo $apilocation->lat; ?>,<?php echo $apilocation->lng; ?>" class="mdp-link" target="_blank"><?php echo $locationAddress; ?></a>
+          <a href="http://maps.google.com/?q=<?php echo $locationAddress; ?>" class="mdp-link" target="_blank"><?php echo $locationAddress; ?></a>
         </p>
       </div>
     </div>
