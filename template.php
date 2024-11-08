@@ -6,18 +6,19 @@ function memberdirectoryportal_member_template( $template ) {
   global $apidata;
   $apidata = get_post_meta( $post->ID, 'mdp_data', true);
   $apidata = json_decode($apidata);
+
   if ( $post->post_type == 'mdp_members' ) {
-    return __DIR__ . '/templates/single/member.php';
+    return MDP_PLUGIN_DIR . 'page-templates/mdp-single-members-template.php';
   }
   if( str_contains($post->post_type, 'mdp_channel_') ) {
     if($apidata->event) {
-      return __DIR__ . '/templates/single/event.php';
+      return MDP_PLUGIN_DIR . 'page-templates/mdp-single-events-template.php';
     } else if ($apidata->job) {
-      return __DIR__ . '/templates/single/job.php';
+      return MDP_PLUGIN_DIR . 'page-templates/mdp-single-jobs-template.php';
     } else if ( $apidata->advertisement ) {
-      return __DIR__ . '/templates/single/ads.php';
+      return MDP_PLUGIN_DIR . 'page-templates/mdp-single-advertisement-template.php';
     } else {
-      return __DIR__ . '/templates/single/post.php';
+      return MDP_PLUGIN_DIR . 'page-templates/mdp-single-posts-template.php';
     }
   }
   return $template;
@@ -30,10 +31,10 @@ function memberdirectoryportal_archive_template( $archive_template ) {
   $apidata = get_term_meta( $obj->term_id, 'mdp_data', true);
   $apidata = json_decode($apidata);
   if ( in_array( $obj->taxonomy, array( 'mdp_members_category', 'mdp_members_tag') ) ) {
-    $archive_template = __DIR__ . '/templates/archive/member-archive.php';
+    $archive_template = MDP_PLUGIN_DIR . 'page-templates/mdp-archive-member-template.php';
   }
   if ( str_contains( $obj->taxonomy, 'mdp_channel_' ) ) {
-    $archive_template = __DIR__ . '/templates/archive/channel-archive.php';
+    $archive_template = MDP_PLUGIN_DIR . 'page-templates/mdp-archive-channel-template.php';
   }
   return $archive_template;
 }

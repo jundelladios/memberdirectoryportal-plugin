@@ -117,7 +117,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
           <?php endif; ?>
 
           <?php 
-          require_once MDP_PLUGIN_DIR . '/templates/post-contact.php';
+          require_once MDP_PLUGIN_DIR . 'templates/post-contact.php';
           ?>
           
         </div>
@@ -147,7 +147,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
   ?>
 
   <div class="mdp-footer mdp-padding ">
-    <?php include MDP_PLUGIN_DIR . '/templates/archive/archive-terms.php'; ?>
+    <?php include MDP_PLUGIN_DIR . 'templates/archive-terms.php'; ?>
   </div>
 </div>
 

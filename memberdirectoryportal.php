@@ -14,12 +14,12 @@
 
 define("MDP_PLUGIN_URI", plugin_dir_url( __FILE__ ));
 
-define("MDP_PLUGIN_DIR", __DIR__ );
+define("MDP_PLUGIN_DIR", plugin_dir_path( __FILE__ ) );
 
 
- require_once MDP_PLUGIN_DIR . '/post_types.php';
+ require_once MDP_PLUGIN_DIR . 'post_types.php';
 
- require_once MDP_PLUGIN_DIR . '/menubar.php';
+ require_once MDP_PLUGIN_DIR . 'menubar.php';
 
 
   /**
@@ -28,19 +28,19 @@ define("MDP_PLUGIN_DIR", __DIR__ );
    * 
    */
 
-require_once MDP_PLUGIN_DIR . '/hooks/channel_delete.php';
+require_once MDP_PLUGIN_DIR . 'hooks/channel_delete.php';
 
-require_once MDP_PLUGIN_DIR . '/hooks/channel_upsert.php';
-
-
-require_once MDP_PLUGIN_DIR . '/hooks/channel_upsert_category.php';
-
-require_once MDP_PLUGIN_DIR . '/hooks/channel_delete_category.php';
+require_once MDP_PLUGIN_DIR . 'hooks/channel_upsert.php';
 
 
-require_once MDP_PLUGIN_DIR . '/hooks/channel_upsert_tag.php';
+require_once MDP_PLUGIN_DIR . 'hooks/channel_upsert_category.php';
 
-require_once MDP_PLUGIN_DIR . '/hooks/channel_delete_tag.php';
+require_once MDP_PLUGIN_DIR . 'hooks/channel_delete_category.php';
+
+
+require_once MDP_PLUGIN_DIR . 'hooks/channel_upsert_tag.php';
+
+require_once MDP_PLUGIN_DIR . 'hooks/channel_delete_tag.php';
 
 
 
@@ -51,19 +51,19 @@ require_once MDP_PLUGIN_DIR . '/hooks/channel_delete_tag.php';
  */
 
 
- require_once MDP_PLUGIN_DIR . '/hooks/member_delete.php';
+ require_once MDP_PLUGIN_DIR . 'hooks/member_delete.php';
 
- require_once MDP_PLUGIN_DIR . '/hooks/member_upsert.php';
+ require_once MDP_PLUGIN_DIR . 'hooks/member_upsert.php';
  
  
- require_once MDP_PLUGIN_DIR . '/hooks/member_upsert_category.php';
+ require_once MDP_PLUGIN_DIR . 'hooks/member_upsert_category.php';
  
- require_once MDP_PLUGIN_DIR . '/hooks/member_delete_category.php';
+ require_once MDP_PLUGIN_DIR . 'hooks/member_delete_category.php';
  
  
- require_once MDP_PLUGIN_DIR . '/hooks/member_upsert_tag.php';
+ require_once MDP_PLUGIN_DIR . 'hooks/member_upsert_tag.php';
  
- require_once MDP_PLUGIN_DIR . '/hooks/member_delete_tag.php';
+ require_once MDP_PLUGIN_DIR . 'hooks/member_delete_tag.php';
 
 
  /**
@@ -72,18 +72,18 @@ require_once MDP_PLUGIN_DIR . '/hooks/channel_delete_tag.php';
   *
   */
 
-require_once MDP_PLUGIN_DIR . '/hooks/post_upsert.php';
+require_once MDP_PLUGIN_DIR . 'hooks/post_upsert.php';
 
-require_once MDP_PLUGIN_DIR . '/hooks/post_delete.php';
+require_once MDP_PLUGIN_DIR . 'hooks/post_delete.php';
 
-require_once MDP_PLUGIN_DIR . '/queryvars.php';
+require_once MDP_PLUGIN_DIR . 'queryvars.php';
 
-require_once MDP_PLUGIN_DIR . '/api.php';
+require_once MDP_PLUGIN_DIR . 'api.php';
 
-require_once MDP_PLUGIN_DIR . '/webhook.php';
+require_once MDP_PLUGIN_DIR . 'webhook.php';
 
-require_once MDP_PLUGIN_DIR . '/shortcode.php';
+require_once MDP_PLUGIN_DIR . 'shortcode.php';
 
-require_once MDP_PLUGIN_DIR . '/template.php';
+require_once MDP_PLUGIN_DIR . 'template.php';
 
-require_once MDP_PLUGIN_DIR . '/assets.php';
+require_once MDP_PLUGIN_DIR . 'assets.php';

@@ -125,7 +125,7 @@ function memberdirectoryportal_template_channel( $request ) {
   $postslist = new WP_Query( $args );
   if ( $postslist->have_posts() ) :
     while ( $postslist->have_posts() ) : $postslist->the_post(); 
-      include MDP_PLUGIN_DIR . '/templates/archive/channel-archive-post.php';
+      include MDP_PLUGIN_DIR . 'templates/channel-archive-post.php';
     endwhile;  
     ?>
     <div class="mdp-flex mdp-gap5 mdp-pagination">
@@ -245,7 +245,7 @@ function memberdirectoryportal_template_members( $request ) {
   $postslist = new WP_Query( $args );
   if ( $postslist->have_posts() ) :
     while ( $postslist->have_posts() ) : $postslist->the_post(); 
-      include MDP_PLUGIN_DIR . '/templates/archive/member-archive-post.php';
+      include MDP_PLUGIN_DIR . 'templates/member-archive-post.php';
     endwhile;  
     ?>
     <div class="mdp-flex mdp-gap5 mdp-pagination">

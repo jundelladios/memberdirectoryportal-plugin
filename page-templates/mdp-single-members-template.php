@@ -1,4 +1,8 @@
 <?php 
+/**
+ * Template Name: MDP Members Template
+ */
+
 global $apidata;
 global $post;
 $member = $apidata->user;
@@ -6,7 +10,7 @@ $categoryTerm = "mdp_members_category";
 $tagTerm = "mdp_members_tag";
 $locationAddress = $member->address1 . " " . $member->city . ", " . $member->country . " " . $member->postal_code;
 $mapslug = "member-map";
-wp_head(); 
+get_header(); 
 ?>
 
 <div class="mdp-container mdp">
@@ -20,7 +24,7 @@ wp_head();
   </div>
 
   <?php 
-  require_once MDP_PLUGIN_DIR . '/templates/post-terms.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-terms.php';
   ?>
 
   <div class="mdp-mb5">
@@ -152,9 +156,9 @@ wp_head();
   
   <?php 
   $apilocation = $member;
-  require_once MDP_PLUGIN_DIR . '/templates/post-location.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-location.php';
   ?>
 
 </div>
 
-<?php wp_footer(); ?>
+<?php get_footer();

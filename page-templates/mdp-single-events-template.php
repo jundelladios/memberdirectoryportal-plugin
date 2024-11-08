@@ -1,4 +1,8 @@
 <?php 
+/**
+ * Template Name: MDP Events Template
+ */
+
 global $apidata;
 global $post;
 $event = $apidata->event;
@@ -15,12 +19,12 @@ $categoryTerm = $posttype."_category";
 $tagTerm = $posttype."_tag";
 $locationAddress = $apidata->address1 . " " . $apidata->city . ", " . $apidata->country . " " . $apidata->postal_code;
 $mapslug = "post-map";
-wp_head(); 
+get_header(); 
 ?>
 
 <div class="mdp-container mdp">
 
-  <?php require_once MDP_PLUGIN_DIR . '/templates/post-medias.php'; ?>
+  <?php require_once MDP_PLUGIN_DIR . 'templates/post-medias.php'; ?>
 
   <div class="mdp-mb5">
     <div class="mdp-panel">
@@ -32,7 +36,7 @@ wp_head();
   </div>
 
   <?php 
-  require_once MDP_PLUGIN_DIR . '/templates/post-videos.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-videos.php';
   ?>
 
   <div class="mdp-mb5">
@@ -104,7 +108,7 @@ wp_head();
 
   <?php 
   $apilocation = $apidata;
-  require_once MDP_PLUGIN_DIR . '/templates/post-location.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-location.php';
   ?>
 
   <div class="mdp-mb5">
@@ -113,16 +117,18 @@ wp_head();
         <h4 class="mdp-title">Contact Information</h4>
       </div>
       <?php 
-      require_once MDP_PLUGIN_DIR . '/templates/post-contact.php';
+      require_once MDP_PLUGIN_DIR . 'templates/post-contact.php';
       ?>
     </div>
   </div>
 
 
   <?php 
-  require_once MDP_PLUGIN_DIR . '/templates/post-terms.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-terms.php';
   ?>
 
 </div>
 
-<?php wp_footer(); ?>
+<?php 
+
+get_footer();

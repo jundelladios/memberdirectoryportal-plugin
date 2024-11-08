@@ -72,7 +72,7 @@ $tagTerm = "mdp_members_tag";
   </div>
 
   <div class="mdp-footer mdp-padding ">
-    <?php include MDP_PLUGIN_DIR . '/templates/archive/archive-terms.php'; ?>
+    <?php include MDP_PLUGIN_DIR . 'templates/archive-terms.php'; ?>
   </div>
   
 </div>

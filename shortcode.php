@@ -40,7 +40,7 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
 
   if($atts['pagination']) {
     ob_start();
-      include MDP_PLUGIN_DIR . '/templates/post-member-pagination-sc.php';
+      include MDP_PLUGIN_DIR . 'templates/post-member-pagination-sc.php';
     return ob_get_clean();
   }
 
@@ -52,7 +52,7 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
   ob_start();
   echo '<div class="mdp mdp-container">';
   foreach( $posts as $post ) {
-    include MDP_PLUGIN_DIR . '/templates/archive/member-archive-post.php';
+    include MDP_PLUGIN_DIR . 'templates/member-archive-post.php';
   }
   echo '</div>';
 
@@ -78,7 +78,7 @@ function memberdirectoryportal_feed_shortcode($atts) {
 
   if($atts['pagination']) {
     ob_start();
-      include MDP_PLUGIN_DIR . '/templates/post-feed-pagination-sc.php';
+      include MDP_PLUGIN_DIR . 'templates/post-feed-pagination-sc.php';
     return ob_get_clean();
   }
 
@@ -90,7 +90,7 @@ function memberdirectoryportal_feed_shortcode($atts) {
   ob_start();
   echo '<div class="mdp mdp-container">';
   foreach( $posts as $post ) {
-    include MDP_PLUGIN_DIR . '/templates/archive/channel-archive-post.php';
+    include MDP_PLUGIN_DIR . 'templates/channel-archive-post.php';
   }
   echo '</div>';
 
@@ -118,7 +118,7 @@ function memberdirectoryportal_member_terms_shortcode($atts) {
   echo '<div class="mdp mdp-container">';
   echo '<div class="mdp-term-grid">';
   foreach($terms as $term) {
-    include MDP_PLUGIN_DIR . '/templates/term-grid.php';
+    include MDP_PLUGIN_DIR . 'templates/term-grid.php';
   }
   echo '</div>';
   echo '</div>';
@@ -137,7 +137,7 @@ function memberdirectoryportal_feed_filter_channel($atts) {
   $atts);
   if(!$atts['post_type']) { return ""; }
   ob_start();
-  include MDP_PLUGIN_DIR . '/templates/filter-channel.php';
+  include MDP_PLUGIN_DIR . 'templates/filter-channel.php';
   return ob_get_clean();
 }
 add_shortcode('mdpsc_filter_channel', 'memberdirectoryportal_feed_filter_channel');
@@ -151,7 +151,7 @@ function memberdirectoryportal_feed_filter_member($atts) {
     ),
   $atts);
   ob_start();
-  include MDP_PLUGIN_DIR . '/templates/filter-member.php';
+  include MDP_PLUGIN_DIR . 'templates/filter-member.php';
   return ob_get_clean();
 }
 add_shortcode('mdpsc_filter_member', 'memberdirectoryportal_feed_filter_member');

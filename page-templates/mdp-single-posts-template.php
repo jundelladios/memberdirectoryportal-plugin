@@ -1,4 +1,8 @@
 <?php 
+/**
+ * Template Name: MDP Posts Template
+ */
+
 global $apidata;
 global $post;
 $posts = get_posts(array(
@@ -10,12 +14,12 @@ $channelPost = $posts[0];
 $posttype = 'mdp_channel_' . $channelPost->ID;
 $categoryTerm = $posttype."_category";
 $tagTerm = $posttype."_tag";
-wp_head(); 
+get_header(); 
 ?>
 
 <div class="mdp-container mdp">
 
-  <?php require_once MDP_PLUGIN_DIR . '/templates/post-medias.php'; ?>
+  <?php require_once MDP_PLUGIN_DIR . 'templates/post-medias.php'; ?>
 
   <div class="mdp-mb5">
     <div class="mdp-panel">
@@ -26,13 +30,13 @@ wp_head();
   </div>
 
   <?php 
-  require_once MDP_PLUGIN_DIR . '/templates/post-videos.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-videos.php';
   ?>
 
   <?php 
-  require_once MDP_PLUGIN_DIR . '/templates/post-terms.php';
+  require_once MDP_PLUGIN_DIR . 'templates/post-terms.php';
   ?>
 
 </div>
 
-<?php wp_footer(); ?>
+<?php get_footer();

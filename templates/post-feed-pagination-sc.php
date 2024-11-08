@@ -95,7 +95,7 @@ foreach($metaqueries as $mq) {
 $postslist = new WP_Query( $args );
 if ( $postslist->have_posts() ) :
   while ( $postslist->have_posts() ) : $postslist->the_post(); 
-    include MDP_PLUGIN_DIR . '/templates/archive/channel-archive-post.php';
+    include MDP_PLUGIN_DIR . 'templates/channel-archive-post.php';
   endwhile;  
   ?>
   <div class="mdp-flex mdp-gap5 mdp-pagination">

@@ -1,5 +1,9 @@
 <?php 
-wp_head();
+/**
+ * Template Name: MDP Member Archive Template
+ */
+
+get_header();
 ?>
 
 <div class="mdp-archive-title mdp-padding">
@@ -9,7 +13,7 @@ wp_head();
 <div class="mdp mdp-container">
   <?php if ( have_posts() ) : ?>
   <?php while ( have_posts() ) : the_post();  ?>
-  <?php include MDP_PLUGIN_DIR . '/templates/archive/channel-archive-post.php'; ?>
+  <?php include MDP_PLUGIN_DIR . 'templates/member-archive-post.php'; ?>
   <?php endwhile; ?>
 
   <div class="mdp-flex mdp-gap5 mdp-pagination">
@@ -28,4 +32,4 @@ wp_head();
 </div>
 
 <?php
-wp_footer();
+get_footer();
