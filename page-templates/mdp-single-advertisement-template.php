@@ -26,7 +26,7 @@ get_header();
 
   <div class="mdp-container mdp">
 
-    <?php require_once MDP_PLUGIN_DIR . 'templates/post-medias.php'; ?>
+    <?php require_once MDP_PLUGIN_DIR . 'templates/post-medias-instagram.php'; ?>
 
     <div class="mdp-mb5">
       <div class="mdp-panel">

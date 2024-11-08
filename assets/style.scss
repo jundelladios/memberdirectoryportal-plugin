@@ -345,3 +345,25 @@
     display: none;
   }
 }
+
+.mdp-instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 100%));
+  justify-content: center;
+  grid-gap: 28px;
+  margin-bottom: 20px;
+
+  .mdp-instagram-item {
+    display: block;
+
+    img, video {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(100px, 100%));
+    grid-gap: 3px;
+  }
+}
