@@ -1,5 +1,10 @@
 <?php
 
+function memberdirectoryportal_post_icon() {
+
+  return "dashicons-database";
+}
+
 function memberdirectoryportal_channels_posttypes() {
   // member directory chanel post type management
   register_post_type('mdp_channels',
@@ -8,8 +13,8 @@ function memberdirectoryportal_channels_posttypes() {
         'name' => __('Member Directory Channels'),
         'singular_name' => __('Member Directory Channel')
       ),
-      'menu_icon' => 'dashicons-plugins-checked',
-      'public' => false,
+      'menu_icon' => memberdirectoryportal_post_icon(),
+      'public' => true,
       'has_archive' => true,
       'show_in_rest' => true,
       'rest_base' => 'mdp_channels',
@@ -25,7 +30,7 @@ function memberdirectoryportal_channels_posttypes() {
         'name' => __('Members'),
         'singular_name' => __('Member')
       ),
-      'menu_icon' => 'dashicons-plugins-checked',
+      'menu_icon' => memberdirectoryportal_post_icon(),
       'public' => true,
       'has_archive' => true,
       'show_in_rest' => true,
@@ -88,7 +93,7 @@ function memberdirectoryportal_channels_posttypes() {
           'singular_name' => __($posttypes->post_title)
         ),
         'rewrite' => array('slug' => $posttypes->post_name, 'with_front' => false),
-        'menu_icon' => 'dashicons-plugins-checked',
+        'menu_icon' => memberdirectoryportal_post_icon(),
         'public' => true,
         'has_archive' => true,
         'show_in_rest' => true,
