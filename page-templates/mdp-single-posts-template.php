@@ -17,26 +17,30 @@ $tagTerm = $posttype."_tag";
 get_header(); 
 ?>
 
-<div class="mdp-container mdp">
+<section class="mdp-template-main">
 
-  <?php require_once MDP_PLUGIN_DIR . 'templates/post-medias.php'; ?>
+  <div class="mdp-container mdp">
 
-  <div class="mdp-mb5">
-    <div class="mdp-panel">
-      <div class="mdp-header mdp-padding mbp-border-b0 ">
-        <p class="mdp-mt5"><?php echo $apidata->caption; ?></p>
+    <?php require_once MDP_PLUGIN_DIR . 'templates/post-medias.php'; ?>
+
+    <div class="mdp-mb5">
+      <div class="mdp-panel">
+        <div class="mdp-header mdp-padding mbp-border-b0 ">
+          <p class="mdp-mt5"><?php echo $apidata->caption; ?></p>
+        </div>
       </div>
     </div>
+
+    <?php 
+    require_once MDP_PLUGIN_DIR . 'templates/post-videos.php';
+    ?>
+
+    <?php 
+    require_once MDP_PLUGIN_DIR . 'templates/post-terms.php';
+    ?>
+
   </div>
 
-  <?php 
-  require_once MDP_PLUGIN_DIR . 'templates/post-videos.php';
-  ?>
-
-  <?php 
-  require_once MDP_PLUGIN_DIR . 'templates/post-terms.php';
-  ?>
-
-</div>
+</section>
 
 <?php get_footer();
