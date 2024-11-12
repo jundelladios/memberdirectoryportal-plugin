@@ -29,7 +29,7 @@ function memberdirectoryportal_post_upsert( $payload ) {
   $args = array(
     'post_title' => $title,
     'post_content' => $payload['caption'],
-    'post_status' => 'publish',
+    'post_status' => $payload['status'] == 1 ? 'publish' : "pending",
     'post_date' => date('Y-m-d H:i:s'),
     'post_author' => $user_ID,
     'post_type' => $posttype,
@@ -45,6 +45,9 @@ function memberdirectoryportal_post_upsert( $payload ) {
     $args['ID'] = $post->ID;
     $post_id = wp_update_post($args);
   } else {
+    if($payload['status'] !== 1) {
+      return new WP_REST_Response(array('success' => "Post not approved."), 200);
+    }
     $post_id = wp_insert_post($args);
   }
 
@@ -78,6 +81,12 @@ function memberdirectoryportal_post_upsert( $payload ) {
 
     // clear caches
     clean_post_cache( $post_id );
+
+    // remove post if it is not approve.
+    if($payload['status'] !== 1) {
+      wp_delete_post( $post_id, true );
+    }
+
     clean_taxonomy_cache( $taxonomyCat );
     clean_taxonomy_cache( $taxonomyTag );
     memberdirectoryportal_clean_shortcode_cache('mdpsc_feed');
