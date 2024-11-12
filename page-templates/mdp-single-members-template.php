@@ -20,7 +20,7 @@ get_header();
     <div class="mdp-mb5">
       <div class="mdp-panel">
         <div class="mdp-header mdp-padding mbp-border-b0 ">
-          <h4 class="mdp-title"><?php echo $member->company; ?></h4>
+          <h4 class="mdp-title"><?php echo $member->company_name; ?></h4>
         </div>
       </div>
     </div>

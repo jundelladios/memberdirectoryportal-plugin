@@ -4,11 +4,11 @@ function memberdirectoryportal_upsert_member( $payload ) {
 
   global $user_ID;
 
-  if(!$payload['user']['company']) {
+  if(!$payload['user']['company_name']) {
     return new WP_REST_Response(array('error' => true), 400);
   }
 
-  $title = $payload['user']['company'];
+  $title = $payload['user']['company_name'];
   $slug = sanitize_title($title);
 
   $posts = get_posts(array(
