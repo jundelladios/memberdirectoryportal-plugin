@@ -1,5 +1,9 @@
 <?php
 
+function memberdirectoryportal_empty_sc() {
+  return __("There's no result from search directory.");
+}
+
 function memberdirectoryportal_field_shortcode($atts) {
   global $post;
   $post_id = $post->ID;
@@ -34,7 +38,8 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
   $atts = shortcode_atts(
     array(
       'limit' => get_option( 'posts_per_page' ),
-      'pagination' => false
+      'pagination' => false,
+      'empty_text' => memberdirectoryportal_empty_sc()
     ),
   $atts);
 
@@ -54,6 +59,10 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
   foreach( $posts as $post ) {
     include MDP_PLUGIN_DIR . 'templates/member-archive-post.php';
   }
+
+  if(!count($posts) && $atts['empty_text']) {
+    echo '<p class="mdp-empty-sc">' . $atts['empty_text'] . '</p>';
+  }
   echo '</div>';
 
   return ob_get_clean();
@@ -70,7 +79,8 @@ function memberdirectoryportal_feed_shortcode($atts) {
     array(
       'limit' => get_option( 'posts_per_page' ),
       'post_type' => null,
-      'pagination' => false
+      'pagination' => false,
+      'empty_text' => memberdirectoryportal_empty_sc()
     ),
   $atts);
 
@@ -91,6 +101,10 @@ function memberdirectoryportal_feed_shortcode($atts) {
   echo '<div class="mdp mdp-container">';
   foreach( $posts as $post ) {
     include MDP_PLUGIN_DIR . 'templates/channel-archive-post.php';
+  }
+
+  if(!count($posts) && $atts['empty_text']) {
+    echo '<p class="mdp-empty-sc">' . $atts['empty_text'] . '</p>';
   }
   echo '</div>';
 

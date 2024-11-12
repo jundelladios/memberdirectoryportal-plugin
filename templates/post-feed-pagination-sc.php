@@ -103,6 +103,12 @@ if ( $postslist->have_posts() ) :
   <div class="nav-next mdp-page-button alignright"><?php next_posts_link( 'Next', $postslist->max_num_pages ); ?></div>
   <?php
   wp_reset_postdata();
+else:
+  if( $atts['empty_text']): 
+  ?>
+  <p class="mdp-empty-sc"><?php echo $atts['empty_text']; ?></p>
+  <?php
+  endif;
 endif;
 ?>
 </div>
