@@ -6,6 +6,7 @@
 global $apidata;
 global $post;
 $member = $apidata->user;
+
 $categoryTerm = "mdp_members_category";
 $tagTerm = "mdp_members_tag";
 $locationAddress = $member->address1 . " " . $member->city . ", " . $member->country . " " . $member->postal_code;

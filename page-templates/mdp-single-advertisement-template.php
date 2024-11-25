@@ -32,7 +32,7 @@ get_header();
       <div class="mdp-panel">
         <div class="mdp-header mdp-padding mbp-border-b0 ">
           <h4 class="mdp-title"><?php echo $apidata->title; ?></h4>
-          <p class="mdp-mt5"><?php echo $apidata->caption; ?></p>
+          <p class="mdp-mt5"><?php echo urldecode($apidata->caption); ?></p>
         </div>
       </div>
     </div>

@@ -1,6 +1,4 @@
-<?php global $apidata; ?>
-
-<?php if(count($apidata->medias)): ?>
+<?php if(isset($apidata->medias) && is_array($apidata->medias) && count($apidata->medias)): ?>
   <div class="mdp_medias_wrap">
 
     <div class="mdp-mb5 mdp_medias">

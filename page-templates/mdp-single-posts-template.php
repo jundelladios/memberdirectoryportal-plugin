@@ -26,7 +26,7 @@ get_header();
     <div class="mdp-mb5">
       <div class="mdp-panel">
         <div class="mdp-header mdp-padding mbp-border-b0 ">
-          <p class="mdp-mt5"><?php echo $apidata->caption; ?></p>
+          <p class="mdp-mt5"><?php echo urldecode($apidata->caption); ?></p>
         </div>
       </div>
     </div>

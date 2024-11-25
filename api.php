@@ -4,9 +4,7 @@ add_action( 'rest_api_init', function () {
   register_rest_route( 'memberdirectoryportal', 'template/channels', array(
     'methods' => 'GET',
     'callback' => 'memberdirectoryportal_template_channel',
-    'permission_callback' => function() {
-      return true;
-    }
+    'permission_callback' => '__return_true'
   ));
 });
 
@@ -15,9 +13,7 @@ add_action( 'rest_api_init', function () {
   register_rest_route( 'memberdirectoryportal', 'template/members', array(
     'methods' => 'GET',
     'callback' => 'memberdirectoryportal_template_members',
-    'permission_callback' => function() {
-      return true;
-    }
+    'permission_callback' => '__return_true'
   ));
 });
 

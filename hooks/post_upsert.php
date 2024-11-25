@@ -3,7 +3,7 @@
 function memberdirectoryportal_post_upsert( $payload ) {
   global $user_ID;
 
-  $title = $payload['title'] ? $payload['title'] : wp_trim_words( $payload['caption'], 5, "" );
+  $title = $payload['title'] ? $payload['title'] : wp_trim_words( wp_strip_all_tags( urldecode($payload['caption']) ), 10, "..." );
   $slug = sanitize_title($title);
 
   $channels = get_posts(array(
@@ -28,7 +28,7 @@ function memberdirectoryportal_post_upsert( $payload ) {
 
   $args = array(
     'post_title' => $title,
-    'post_content' => $payload['caption'],
+    'post_content' => wp_strip_all_tags(urldecode($payload['caption'])),
     'post_status' => $payload['status'] == 1 ? 'publish' : "pending",
     'post_date' => date('Y-m-d H:i:s'),
     'post_author' => $user_ID,
@@ -75,7 +75,10 @@ function memberdirectoryportal_post_upsert( $payload ) {
 
     update_post_meta( $post_id, $metapostkey, $payload['id'] );
     update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
-
+    
+    error_log("WTF ww");
+    error_log(json_encode($payload));
+    
     // post meta setter
     memberdirectoryportal_mpdata_postmeta( $post_id, $payload );
 
@@ -83,9 +86,9 @@ function memberdirectoryportal_post_upsert( $payload ) {
     clean_post_cache( $post_id );
 
     // remove post if it is not approve.
-    if($payload['status'] !== 1) {
-      wp_delete_post( $post_id, true );
-    }
+    // if($payload['status'] !== 1) {
+    //   wp_delete_post( $post_id, true );
+    // }
 
     clean_taxonomy_cache( $taxonomyCat );
     clean_taxonomy_cache( $taxonomyTag );
