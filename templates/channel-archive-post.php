@@ -51,7 +51,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
         <p class="mdp-mt5">
           <add-to-calendar-button
             name="<?php echo $postapidata->title; ?>"
-            description="<?php echo urldecode($postapidata->caption); ?>"
+            description="<?php echo wp_strip_all_tags(urldecode($postapidata->caption)); ?>"
             startDate="<?php echo date('Y-m-d', strtotime($event->start_date)); ?>"
             endDate="<?php echo date('Y-m-d', strtotime($event->end_date)); ?>"
             startTime="<?php echo date('H:s', strtotime($event->start_date)); ?>"
