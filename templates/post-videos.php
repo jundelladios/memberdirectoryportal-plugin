@@ -1,6 +1,6 @@
 <?php global $apidata; ?>
 <?php if(isset($apidata->videoLinks) && count($apidata->videoLinks)): 
-  $mdpvidtitle = $apidata->title ? $apidata->title : wp_trim_words( $apidata->caption, 5, "" );
+  $mdpvidtitle = $apidata->title ? $apidata->title : wp_trim_words( wp_strip_all_tags(urldecode($apidata->caption), 5, "" ));
   ?>
 <div class="mdp-mb5">
   <div class="mdp-panel">

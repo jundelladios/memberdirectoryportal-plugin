@@ -33,7 +33,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
         <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
           <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
         </a>
-        <p><?php echo memberdirectoryportal_exerpt($postapidata->caption); ?></p>
+        <p><?php echo memberdirectoryportal_exerpt(urldecode($postapidata->caption)); ?></p>
       </div>
       <div class="mdp-eventarchive-location">
         <p>
@@ -51,7 +51,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
         <p class="mdp-mt5">
           <add-to-calendar-button
             name="<?php echo $postapidata->title; ?>"
-            description="<?php echo $postapidata->caption; ?>"
+            description="<?php echo urldecode($postapidata->caption); ?>"
             startDate="<?php echo date('Y-m-d', strtotime($event->start_date)); ?>"
             endDate="<?php echo date('Y-m-d', strtotime($event->end_date)); ?>"
             startTime="<?php echo date('H:s', strtotime($event->start_date)); ?>"
@@ -75,7 +75,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
       <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
         <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
       </a>
-      <p><?php echo $postapidata->caption; ?></p>
+      <p><?php echo urldecode($postapidata->caption); ?></p>
 
       <div class="mdp-mb5">
         <div class="mdp-panel">
@@ -133,14 +133,14 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
         <h4 class="mdp-archive-title mdp-title"><?php echo the_title(); ?></h4>
       </a>
       <p class="mdp-italic"><?php echo $ads->tagline; ?></p>
-      <p><?php echo $postapidata->caption; ?></p>
+      <p><?php echo urldecode($postapidata->caption); ?></p>
     </div>
     <?php
   } else {
     // normal post
     ?>
     <div class="mdp-padding">
-      <p><?php echo memberdirectoryportal_exerpt($postapidata->caption, "Continue to this post &#xbb;", 60); ?></p>
+      <p><?php echo memberdirectoryportal_exerpt(urldecode($postapidata->caption), "Continue to this post &#xbb;", 60); ?></p>
     </div>
     <?php
   }

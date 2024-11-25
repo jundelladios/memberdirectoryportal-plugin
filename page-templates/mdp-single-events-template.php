@@ -62,7 +62,7 @@ get_header();
             <div class="mdp-mt5">
               <add-to-calendar-button
                 name="<?php echo $apidata->title; ?>"
-                description="<?php echo $apidata->caption; ?>"
+                description="<?php echo urldecode($apidata->caption); ?>"
                 startDate="<?php echo date('Y-m-d', strtotime($event->start_date)); ?>"
                 endDate="<?php echo date('Y-m-d', strtotime($event->end_date)); ?>"
                 startTime="<?php echo date('H:s', strtotime($event->start_date)); ?>"
