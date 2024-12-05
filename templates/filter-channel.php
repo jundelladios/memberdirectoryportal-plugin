@@ -37,7 +37,7 @@ $website = get_query_var("website");
         <input class="mdp-input" value="<?php echo $search; ?>" type="text" name="search" placeholder="What are you looking for?">
       </div>
 
-      <?php if(count($categories)): ?>
+      <?php if(is_array($categories) && count($categories)): ?>
       <div class="mdp-filter-col mdp-filter-category">
         <select class="mdp-input" placeholder="Category" name="categories">
           <option value="">Select Category</option>
@@ -48,7 +48,7 @@ $website = get_query_var("website");
       </div>
       <?php endif; ?>
 
-      <?php if(count($tags)): ?>
+      <?php if(is_array($tags) && count($tags)): ?>
       <div class="mdp-filter-col mdp-filter-tag">
         <select class="mdp-input" placeholder="Tags" name="tags" >
           <option value="">Select Tag</option>

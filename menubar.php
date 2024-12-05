@@ -29,15 +29,15 @@ function memberdirectoryportal_adminbar( $wp ) {
 
 
 function memberdirectoryportal_get_portalmain() {
-  if(defined('MDP_DEVELOPMENT')) {
-    return "http://localhost:3000";
+  if(defined('MDP_DEVELOPMENT_URL')) {
+    return MDP_DEVELOPMENT_URL;
   }
   return "https://member-directoryportal.com";
 }
 
 function memberdirectoryportal_get_portaldomain() {
-  if(defined('MDP_DEVELOPMENT')) {
-    return "http://localhost:3000";
+  if(defined('MDP_DEVELOPMENT_URL')) {
+    return MDP_DEVELOPMENT_URL;
   }
 
   $domain = get_option( 'mdp_domain' );

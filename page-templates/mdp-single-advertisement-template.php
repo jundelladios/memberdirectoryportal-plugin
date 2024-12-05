@@ -72,9 +72,9 @@ get_header();
             </p>
           </div>
           <div>
-            <p><?php echo date('F j, Y @ g:s A', strtotime($ads->offer_start)); ?></p>
+            <p><?php echo date('F j, Y @ h:i A', strtotime($ads->offer_start)); ?></p>
             <?php if(!$ads->no_expiration): ?>
-            <p><?php echo date('F j, Y @ g:s A', strtotime($ads->offser_end)); ?></p>
+            <p><?php echo date('F j, Y @ h:i A', strtotime($ads->offser_end)); ?></p>
             <?php endif; ?>
           </div>
         </div>

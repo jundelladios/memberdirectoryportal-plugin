@@ -23,7 +23,8 @@ function memberdirectoryportal_post_upsert( $payload ) {
   $posts = get_posts(array(
     'post_type'     => $posttype,
     'meta_key' => $metapostkey,
-    'meta_value' => $payload['id']
+    'meta_value' => (int) $payload['id'],
+    'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
   ));
 
   $args = array(
@@ -76,11 +77,12 @@ function memberdirectoryportal_post_upsert( $payload ) {
     update_post_meta( $post_id, $metapostkey, $payload['id'] );
     update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
     
-    error_log("WTF ww");
-    error_log(json_encode($payload));
-    
     // post meta setter
     memberdirectoryportal_mpdata_postmeta( $post_id, $payload );
+
+
+    // auto draft if page expires
+    memberdirectoryportal_autodraft_page_expires();
 
     // clear caches
     clean_post_cache( $post_id );

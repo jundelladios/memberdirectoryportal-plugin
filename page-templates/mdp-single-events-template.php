@@ -57,16 +57,16 @@ get_header();
             </p>
           </div>
           <div>
-            <p><?php echo date('F j, Y @ g:s A', strtotime($event->start_date)); ?></p>
-            <p><?php echo date('F j, Y @ g:s A', strtotime($event->end_date)); ?></p>
+            <p><?php echo date('F j, Y @ h:i A', strtotime($event->start_date)); ?></p>
+            <p><?php echo date('F j, Y @ h:i A', strtotime($event->end_date)); ?></p>
             <div class="mdp-mt5">
               <add-to-calendar-button
                 name="<?php echo $apidata->title; ?>"
                 description="<?php echo wp_strip_all_tags(urldecode($apidata->caption)); ?>"
                 startDate="<?php echo date('Y-m-d', strtotime($event->start_date)); ?>"
                 endDate="<?php echo date('Y-m-d', strtotime($event->end_date)); ?>"
-                startTime="<?php echo date('H:s', strtotime($event->start_date)); ?>"
-                endTime="<?php echo date('H:s', strtotime($event->end_date)); ?>"
+                startTime="<?php echo date('H:i', strtotime($event->start_date)); ?>"
+                endTime="<?php echo date('H:i', strtotime($event->end_date)); ?>"
                 location="<?php echo $locationAddress; ?>"
                 options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
                 trigger="click"

@@ -49,3 +49,59 @@ function memberdirectoryportal_exerpt( $text="", $more=null, $num_words = 20, $e
   $excerpt .= '<p><a href="' . get_permalink( $post ) . '" class="mdp-link" aria-label="' . $moreText . '" title="' . $moreText . '">' . $moreText . '</a></p>';
   return $excerpt;
 }
+
+
+// event expiration auto draft if expires
+function memberdirectoryportal_autodraft_page_expires() {
+
+  // channels that has expiration auto draft page.
+  $channels = get_posts( array(
+    'numberposts' => -1,
+    'post_type' => 'mdp_channels',
+    'meta_query' => array(
+      'relation' => 'OR',
+      array(
+          'key'     => 'mdp_data_category',
+          'value'   => 'Events',
+          'compare' => '='
+      ),
+      array(
+        'key'     => 'mdp_data_category',
+        'value'   => 'Advertising',
+        'compare' => '='
+      ),
+    )
+  ));
+
+  $posttypes = [];
+  foreach($channels as $ch) {
+    $posttypes[] = "mdp_channel_" . $ch->ID;
+  }
+
+  $postargs = array(
+    'numberposts'   => -1,
+    'post_type' => $posttypes,
+    "order" => "DESC",
+    'post_status' => 'publish',
+    'meta_query' => array(
+      array(
+          'key'     => 'mdp_data_event_end_date',
+          'value'   => date('Y-m-d h:i:s'),
+          'compare' => '<',
+          'type' => 'DATETIME'
+      )
+    )
+  );
+
+  $posts = get_posts($postargs);
+
+  foreach($posts as  $ps) {
+    wp_update_post(array(
+      'ID' => $ps->ID,
+      'post_status' => 'draft'
+    ));
+
+    clean_post_cache( $ps );
+  }
+}
+add_action( "wp", "memberdirectoryportal_autodraft_page_expires" );

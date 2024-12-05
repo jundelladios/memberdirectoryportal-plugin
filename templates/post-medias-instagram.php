@@ -1,6 +1,6 @@
 <?php global $apidata; ?>
 
-<?php if(count($apidata->medias)): ?>
+<?php if(is_array($apidata->medias) && count($apidata->medias)): ?>
   <div class="mdp-instagram-grid">
     <?php 
     $mediaIndex = 0;
