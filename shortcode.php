@@ -80,7 +80,8 @@ function memberdirectoryportal_feed_shortcode($atts) {
       'limit' => get_option( 'posts_per_page' ),
       'post_type' => null,
       'pagination' => false,
-      'empty_text' => memberdirectoryportal_empty_sc()
+      'empty_text' => memberdirectoryportal_empty_sc(),
+      'is_event' => false
     ),
   $atts);
 
@@ -92,10 +93,20 @@ function memberdirectoryportal_feed_shortcode($atts) {
     return ob_get_clean();
   }
 
-  $posts = get_posts(array(
+
+  $postArgs = array(
     'post_type' => $atts['post_type'],
     'numberposts' => $atts['limit']
-  ));
+  );
+
+  if($atts['is_event']) {
+    $postArgs['meta_key'] = "mdp_data_event_start_date";
+    $postArgs['meta_type'] = "DATETIME";
+    $postArgs['orderby'] = "meta_value";
+    $postArgs['order'] = "ASC";
+  }
+
+  $posts = get_posts($postArgs);
 
   ob_start();
   echo '<div class="mdp mdp-container">';

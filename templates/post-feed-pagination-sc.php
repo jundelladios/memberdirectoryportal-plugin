@@ -88,6 +88,13 @@ foreach($metaqueries as $mq) {
   }
 }
 
+if($atts['is_event']) {
+  $args['meta_key'] = "mdp_data_event_start_date";
+  $args['meta_type'] = "DATETIME";
+  $args['orderby'] = "meta_value";
+  $args['order'] = "ASC";
+}
+
 ?>
 
 <div class="mdp mdp-container">

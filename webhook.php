@@ -28,6 +28,26 @@ function memberdirectoryportal_post_taxonomy_set( $post_id, $ids, $metakey, $tax
     $termIds[] = $trm->term_id;
   }
   wp_set_post_terms( $post_id, $termIds, $taxonomy );
+
+  // remove term not in list
+  $dterms = get_terms(array(
+    'taxonomy' => $taxonomy,
+    'hide_empty' => false,
+    'meta_query' => array(
+      array(
+        'key' => $metakey,
+        'value' => $ids,
+        'compare' => 'NOT IN'
+      )
+    )
+  ));
+
+  $dtermIds = [];
+  foreach($dterms as $trm) {
+    $dtermIds[] = $trm->term_id;
+  }
+  wp_remove_object_terms( $post_id, $dtermIds, $taxonomy );
+  
 }
 
 function memberdirectoryportal_mpdata_value( $value ) {
