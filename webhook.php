@@ -56,13 +56,29 @@ function memberdirectoryportal_mpdata_value( $value ) {
 }
 
 function memberdirectoryportal_mpdata_postmeta( $post_id, $payload ) {
+
   foreach($payload as $key => $value) {
-    update_post_meta( $post_id, "mdp_data_$key", memberdirectoryportal_mpdata_value($value) );
+    $pkey = $key;
+    if(in_array($pkey, array(
+      'createdAt',
+      'updatedAt'
+    ))) {
+      $value = memberdirectoryportal_js_dateformat("Y-m-d H:i:s", $value);
+    }
+    update_post_meta( $post_id, "mdp_data_$pkey", memberdirectoryportal_mpdata_value($value) );
   }
 
   if(isset($payload['event'])) {
     foreach($payload['event'] as $key => $value) {
-      update_post_meta( $post_id, "mdp_data_event_$key", memberdirectoryportal_mpdata_value($value) );
+      $pkey = $key;
+      if(in_array($pkey, array(
+        'start_date',
+        'end_date',
+        'reminder_date',
+      ))) {
+        $value = memberdirectoryportal_js_dateformat("Y-m-d H:i:s", $value);
+      }
+      update_post_meta( $post_id, "mdp_data_event_$pkey", memberdirectoryportal_mpdata_value($value) );
     }
   }
 
@@ -74,6 +90,13 @@ function memberdirectoryportal_mpdata_postmeta( $post_id, $payload ) {
 
   if(isset($payload['advertisement'])) {
     foreach($payload['advertisement'] as $key => $value) {
+      $pkey = $key;
+      if(in_array($pkey, array(
+        'offer_start',
+        'offser_end'
+      ))) {
+        $value = memberdirectoryportal_js_dateformat("Y-m-d H:i:s", $value);
+      }
       update_post_meta( $post_id, "mdp_data_advertisement_$key", memberdirectoryportal_mpdata_value($value) );
     }
   }

@@ -25,9 +25,9 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
     ?>
     <div class="mdp-padding mdp-event-archive-list">
       <div class="mdp-eventarchive-date mdp-padding">
-        <p class="mdp-event-date"><?php echo date('j', strtotime($event->start_date)); ?></p>
-        <p class="mdp-event-month"><?php echo date('F', strtotime($event->start_date)); ?></p>
-        <p class="mdp-event-year"><?php echo date('Y', strtotime($event->start_date)); ?></p>
+        <p class="mdp-event-date"><?php echo memberdirectoryportal_js_dateformat('j', strtotime($event->start_date)); ?></p>
+        <p class="mdp-event-month"><?php echo memberdirectoryportal_js_dateformat('F', strtotime($event->start_date)); ?></p>
+        <p class="mdp-event-year"><?php echo memberdirectoryportal_js_dateformat('Y', strtotime($event->start_date)); ?></p>
       </div>
       <div class="mdp-eventarchive-description">
         <a href="<?php echo get_permalink( $post ); ?>" class="mdp-link mdp-link-title">
@@ -52,10 +52,10 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
           <add-to-calendar-button
             name="<?php echo $postapidata->title; ?>"
             description="<?php echo wp_strip_all_tags(urldecode($postapidata->caption)); ?>"
-            startDate="<?php echo date('Y-m-d', strtotime($event->start_date)); ?>"
-            endDate="<?php echo date('Y-m-d', strtotime($event->end_date)); ?>"
-            startTime="<?php echo date('H:i', strtotime($event->start_date)); ?>"
-            endTime="<?php echo date('H:i', strtotime($event->end_date)); ?>"
+            startDate="<?php echo memberdirectoryportal_js_dateformat('Y-m-d', strtotime($event->start_date)); ?>"
+            endDate="<?php echo memberdirectoryportal_js_dateformat('Y-m-d', strtotime($event->end_date)); ?>"
+            startTime="<?php echo memberdirectoryportal_js_dateformat('H:i', strtotime($event->start_date)); ?>"
+            endTime="<?php echo memberdirectoryportal_js_dateformat('H:i', strtotime($event->end_date)); ?>"
             location="<?php echo $locationAddress; ?>"
             options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
             trigger="click"

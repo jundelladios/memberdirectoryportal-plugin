@@ -105,3 +105,10 @@ function memberdirectoryportal_autodraft_page_expires() {
   }
 }
 add_action( "wp", "memberdirectoryportal_autodraft_page_expires" );
+
+
+
+function memberdirectoryportal_js_dateformat( $format = "Y-m-d H:i:s", $date ) {
+  $date = date_create_from_format('D M d Y H:i:s e+', $date);
+  return date_format($date, $format);
+}
