@@ -8,9 +8,9 @@
       $mediaalt = preg_replace("/\.[^.]+$/", "", $media->name);
       ?>
         <?php if(str_contains($media->mime, "image")): ?>
-          <div>
+          <a href="<?php echo $media->url; ?>">
             <img src="<?php echo $media->url; ?>" alt="<?php echo $mediaalt; ?>" title="<?php echo $mediaalt; ?>" width="<?php echo $media->width; ?>" height="<?php echo $media->height; ?>">
-          </div>
+          </a>
         <?php endif; ?>
         <?php if(str_contains($media->mime, "video")): ?>
           <div>
@@ -25,13 +25,5 @@
       endforeach; ?>
     </div>
 
-    <?php if( count($apidata->medias) > 1 ): ?>
-    <button class="mdpmediabtn mdpprev">
-      <i class="fa-solid fa-angle-left"></i>
-    </button>
-    <button class="mdpmediabtn mdpnext">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-    <?php endif; ?>
   </div>
 <?php endif; ?>

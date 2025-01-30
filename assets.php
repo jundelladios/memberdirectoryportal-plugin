@@ -3,14 +3,37 @@
 add_action( 'wp_enqueue_scripts', 'theme_slug_enqueue_styles' );
 
 function theme_slug_enqueue_styles() {
+
+	wp_enqueue_script('jquery');
+
   wp_enqueue_style( 
 		'member-directoryportal-style', 
 		MDP_PLUGIN_URI . "assets/style.css"
 	);
 
+	wp_enqueue_style( 
+		'member-directoryportal-slick', 
+		MDP_PLUGIN_URI . "assets/slick/slick.css"
+	);
+
+	wp_enqueue_style( 
+		'member-directoryportal-slick-lightbox', 
+		MDP_PLUGIN_URI . "assets/slick/slick-lightbox.css"
+	);
+
+
+
 	wp_enqueue_script( 
-		'member-directoryportal-siema', 
-		MDP_PLUGIN_URI . "assets/siema.min.js", 
+		'member-directoryportal-slick', 
+		MDP_PLUGIN_URI . "assets/slick/slick.js", 
+		array(),
+		'1.0',
+		true  
+	);
+
+	wp_enqueue_script( 
+		'member-directoryportal-slick-lightbox', 
+		MDP_PLUGIN_URI . "assets/slick/slick-lightbox.js", 
 		array(),
 		'1.0',
 		true  

@@ -160,35 +160,55 @@
 
 
 .mdp_medias {
-  height: 500px;
   position: relative;
+
+  .slick-track
+  {
+      display: flex !important;
+      align-items: flex-start;
+  }
+
+  .slick-slide
+  {
+      height: inherit !important;
+      display: flex!important;
+      align-items: center;
+      float: none!important;
+  }
+
   img {
     display: block;
     margin: 0 auto;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    height: 100%;
+    max-height: max-content;
   }
 }
 
-.mdp_medias_wrap {
+.mdp_medias_wrap,
+.slick-lightbox {
   position: relative;
-  .mdpmediabtn {
+  .mdpmediabtn,
+  .slick-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
     border: 0;
+    z-index: 9;
     cursor: pointer;
     font-size: 20px;
 
-    &.mdpprev {
+    &.mdpprev,
+    &.slick-prev {
       left: 0;
     }
 
-    &.mdpnext {
+    &.mdpnext,
+    &.slick-next {
       right: 0;
     }
   }
