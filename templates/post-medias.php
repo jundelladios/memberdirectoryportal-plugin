@@ -8,7 +8,7 @@
       $mediaalt = preg_replace("/\.[^.]+$/", "", $media->name);
       ?>
         <?php if(str_contains($media->mime, "image")): ?>
-          <a href="<?php echo $media->url; ?>">
+          <a href="<?php echo $media->url; ?>" class="img-slide-lightbox">
             <img src="<?php echo $media->url; ?>" alt="<?php echo $mediaalt; ?>" title="<?php echo $mediaalt; ?>" width="<?php echo $media->width; ?>" height="<?php echo $media->height; ?>">
           </a>
         <?php endif; ?>

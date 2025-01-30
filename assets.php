@@ -16,24 +16,9 @@ function theme_slug_enqueue_styles() {
 		MDP_PLUGIN_URI . "assets/slick/slick.css"
 	);
 
-	wp_enqueue_style( 
-		'member-directoryportal-slick-lightbox', 
-		MDP_PLUGIN_URI . "assets/slick/slick-lightbox.css"
-	);
-
-
-
 	wp_enqueue_script( 
 		'member-directoryportal-slick', 
 		MDP_PLUGIN_URI . "assets/slick/slick.js", 
-		array(),
-		'1.0',
-		true  
-	);
-
-	wp_enqueue_script( 
-		'member-directoryportal-slick-lightbox', 
-		MDP_PLUGIN_URI . "assets/slick/slick-lightbox.js", 
 		array(),
 		'1.0',
 		true  
