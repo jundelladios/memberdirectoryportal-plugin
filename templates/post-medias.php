@@ -1,7 +1,7 @@
 <?php if(isset($apidata->medias) && is_array($apidata->medias) && count($apidata->medias)): ?>
   <div class="mdp_medias_wrap">
 
-    <div class="mdp-mb5 mdp_medias">
+    <div class="mdp-mb5 mdp_medias mdp_medias_slick_slider">
       <?php 
       $mediaIndex = 0;
       foreach( $apidata->medias as $media ): 
