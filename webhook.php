@@ -116,6 +116,11 @@ function memberdirectoryportal_webhook( $request ) {
   switch($type) {
     
     case "check":
+      if(isset( $request['timezone'] )) {
+        update_option( 'timezone_string', $request['timezone'] );
+      } else {
+        update_option( 'timezone_string', get_option( "timezone_string" ) );
+      }
       return new WP_REST_Response(array('success' => "OK"), 200);
     break;
 
