@@ -33,7 +33,6 @@ add_shortcode('mdpsc_member_application', 'memberdirectoryportal_member_applicat
 
 function memberdirectoryportal_member_feed_shortcode($atts) {
   global $post;
-  $post_id = $post->ID;
 
   $atts = shortcode_atts(
     array(
@@ -56,9 +55,12 @@ function memberdirectoryportal_member_feed_shortcode($atts) {
 
   ob_start();
   echo '<div class="mdp mdp-container">';
-  foreach( $posts as $post ) {
+  foreach( $posts as $current_post ) {
+    $post = $current_post;
+    setup_postdata( $post );
     include MDP_PLUGIN_DIR . 'templates/member-archive-post.php';
   }
+  wp_reset_postdata();
 
   if(!count($posts) && $atts['empty_text']) {
     echo '<p class="mdp-empty-sc">' . $atts['empty_text'] . '</p>';
@@ -73,7 +75,6 @@ add_shortcode('mdpsc_member_feed', 'memberdirectoryportal_member_feed_shortcode'
 
 function memberdirectoryportal_feed_shortcode($atts) {
   global $post;
-  $post_id = $post->ID;
 
   $atts = shortcode_atts(
     array(
@@ -110,9 +111,12 @@ function memberdirectoryportal_feed_shortcode($atts) {
 
   ob_start();
   echo '<div class="mdp mdp-container">';
-  foreach( $posts as $post ) {
+  foreach( $posts as $current_post ) {
+    $post = $current_post;
+    setup_postdata( $post );
     include MDP_PLUGIN_DIR . 'templates/channel-archive-post.php';
   }
+  wp_reset_postdata();
 
   if(!count($posts) && $atts['empty_text']) {
     echo '<p class="mdp-empty-sc">' . $atts['empty_text'] . '</p>';

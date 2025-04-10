@@ -113,5 +113,8 @@ function memberdirectoryportal_js_dateformat( $format = "Y-m-d H:i:s", $date=nul
     return null;
   }
   $date = date_create_from_format('D M d Y H:i:s e+', $date);
+  if(!$date instanceof DateTime) {
+    return null;
+  }
   return date_format($date, $format);
 }
