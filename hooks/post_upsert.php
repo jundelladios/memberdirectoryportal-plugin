@@ -31,7 +31,7 @@ function memberdirectoryportal_post_upsert( $payload ) {
     'post_title' => $title,
     'post_content' => wp_strip_all_tags(urldecode($payload['caption'])),
     'post_status' => $payload['status'] == 1 ? 'publish' : "pending",
-    'post_date' => date('Y-m-d H:i:s'),
+    //'post_date' => date('Y-m-d H:i:s'), commented out to prevent post set as SCHEDULED
     'post_author' => $user_ID,
     'post_type' => $posttype,
     'post_name' => $slug

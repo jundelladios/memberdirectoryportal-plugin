@@ -21,7 +21,7 @@ function memberdirectoryportal_upsert_member( $payload ) {
     'post_title' => $title,
     'post_content' => "",
     'post_status' => 'publish',
-    'post_date' => date('Y-m-d H:i:s'),
+    //'post_date' => date('Y-m-d H:i:s'), commented out to prevent post set as SCHEDULED
     'post_author' => $user_ID,
     'post_type' => 'mdp_members',
     'post_name' => $slug

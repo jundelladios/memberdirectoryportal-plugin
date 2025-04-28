@@ -13,7 +13,7 @@ function memberdirectoryportal_upsert_channel( $payload ) {
     'post_title' => $payload['name'],
     'post_content' => "",
     'post_status' => 'publish',
-    'post_date' => date('Y-m-d H:i:s'),
+    //'post_date' => date('Y-m-d H:i:s'), commented out to prevent post set as SCHEDULED
     'post_author' => $user_ID,
     'post_type' => 'mdp_channels',
     'post_name' => $payload['slug']
