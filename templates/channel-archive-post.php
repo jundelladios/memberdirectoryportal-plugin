@@ -37,14 +37,14 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
       </div>
       <div class="mdp-eventarchive-location">
         <p>
-          <i class="fa-solid fa-location-dot"></i>
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-location"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></svg>
           <?php 
           echo $postapidata->address1 . " " . $postapidata->city . ", " . $postapidata->country . " " . $postapidata->postal_code;
           ?>
         </p>
         <p>
           <a href="http://www.google.com/maps?daddr=<?php echo $postapidata->lat; ?>,<?php echo $postapidata->lng; ?>" class="mdp-link mdp-wicon" target="_blank">
-          <i class="fa-solid fa-plus"></i> Google Map
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13" /><path d="M9 4v13" /><path d="M15 7v13" /></svg> Google Map
           </a>
         </p>
 
@@ -88,7 +88,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
             <div>
               <p class="mdp-wicon">
                 <span class="mdp-iconwrap">
-                    <i class="fa-solid fa-phone"></i>
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
                 </span>
                 Business name
               </p>
@@ -105,7 +105,7 @@ $locationAddress = $postapidata->address1 . " " . $postapidata->city . ", " . $p
             <div>
               <p class="mdp-wicon">
                 <span class="mdp-iconwrap">
-                    <i class="fa-solid fa-phone"></i>
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
                 </span>
                 Contact Rep
               </p>
