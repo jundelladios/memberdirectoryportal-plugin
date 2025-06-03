@@ -59,7 +59,7 @@ function memberdirectoryportal_upsert_member( $payload ) {
 
     
     update_post_meta( $post_id, 'mdp_member_id', $payload['id'] );
-    update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
+    update_post_meta( $post_id, 'mdp_data', addslashes(json_encode($payload)) );
 
     // post meta setter
     memberdirectoryportal_mpdata_postmeta( $post_id, $payload );

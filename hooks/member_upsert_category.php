@@ -41,7 +41,7 @@ function memberdirectoryportal_upsert_member_category( $payload ) {
 
   if($termId) {
     update_term_meta( $termId, $metakey, $payload['id'] );
-    update_term_meta( $termId, "mdp_data", json_encode($payload) );
+    update_term_meta( $termId, "mdp_data", addslashes(json_encode($payload)) );
 
     // clean cache
     clean_term_cache( $termId, $taxonomy );

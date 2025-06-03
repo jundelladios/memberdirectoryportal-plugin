@@ -33,7 +33,7 @@ function memberdirectoryportal_upsert_channel( $payload ) {
 
   if($post_id) {
     update_post_meta( $post_id, 'mdp_channel_id', $payload['id'] );
-    update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
+    update_post_meta( $post_id, 'mdp_data', addslashes(json_encode($payload)) );
 
     foreach($payload as $key => $value) {
       update_post_meta( $post_id, "mdp_data_$key", memberdirectoryportal_mpdata_value($value) );

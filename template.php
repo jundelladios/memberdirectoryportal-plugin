@@ -118,3 +118,38 @@ function memberdirectoryportal_js_dateformat( $format = "Y-m-d H:i:s", $date=nul
   }
   return date_format($date, $format);
 }
+
+
+function memberdirectoryportal_phone_format( $phone ) {
+  $local = preg_replace('/^\+1/', '', $phone);
+  $formatted = sprintf('(%s) %s-%s',
+      substr($local, 0, 3),
+      substr($local, 3, 3),
+      substr($local, 6)
+  );
+
+  return $formatted;
+}
+
+
+function memberdirectoryportal_escape_inner_quotes_in_json($json) {
+    // This regex finds string values in JSON: "key":"value"
+    return preg_replace_callback(
+      '/"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"(?=\s*:)/', 
+      function ($matches) {
+        // The key part (before colon), leave unchanged
+        return $matches[0];
+      }, 
+      preg_replace_callback(
+        '/"(.*?)"/s', 
+        function ($matches) {
+          // Escape inner unescaped double quotes inside string values
+          $value = $matches[1];
+          // Escape quotes that are not already escaped
+          $escaped = preg_replace('/(?<!\\\\)"/', '\\"', $value);
+          return '"' . $escaped . '"';
+        }, 
+        $json
+      )
+    );
+}

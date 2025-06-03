@@ -75,7 +75,7 @@ function memberdirectoryportal_post_upsert( $payload ) {
     memberdirectoryportal_post_taxonomy_set( $post_id, $ids, $metakey, $taxonomyTag );
 
     update_post_meta( $post_id, $metapostkey, $payload['id'] );
-    update_post_meta( $post_id, 'mdp_data', json_encode($payload) );
+    update_post_meta( $post_id, 'mdp_data', addslashes(json_encode($payload)) );
     
     // post meta setter
     memberdirectoryportal_mpdata_postmeta( $post_id, $payload );
