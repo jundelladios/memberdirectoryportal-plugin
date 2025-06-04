@@ -76,7 +76,8 @@ get_header();
             </div>
           </div>
         </div>
-
+        
+        <?php if( !empty( $event->datetime_description ) ): ?>
         <div class="mdp-info mdp-padding">
           <div>
             <p class="mdp-wicon">
@@ -90,7 +91,9 @@ get_header();
             <p><?php echo urldecode($event->datetime_description); ?></p>
           </div>
         </div>
-
+        <?php endif; ?>
+        
+        <?php if( !empty( $event->fee_description ) ): ?>
         <div class="mdp-info mdp-padding">
           <div>
             <p class="mdp-wicon">
@@ -104,6 +107,7 @@ get_header();
             <p><?php echo urldecode($event->fee_description); ?></p>
           </div>
         </div>
+        <?php endif; ?>
 
       </div>
     </div>
