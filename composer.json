@@ -1,0 +1,8 @@
+{
+    "name": "adios/memberdirectoryportal",
+    "description": "Member Directory Portal Connector",
+    "type": "wordpress-plugin",
+    "require": {
+        "yahnis-elsts/plugin-update-checker": "^5.6"
+    }
+}

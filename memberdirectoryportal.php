@@ -3,14 +3,25 @@
 /**
  * Plugin Name: Member Directory Portal
  * Plugin URI: https://facebook.com
- * Description: Member Directory Portal connector for GHL App
- * Version: 1.0.0
- * Author: Jundell
- * Author URI: mailto:jundell@ad-ios.com
+ * Description: Member Directory Portal Connector
+ * Version: 1.1.0
+ * Author: AD-IOS Digital Marketing Co.
+ * Author URI: https://ad-ios.com/
  * License: GPL-2.0+
  * Text Domain: memberdirectoryportal
  * Domain Path: /languages
  */
+
+require __DIR__ . '/vendor/autoload.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+PucFactory::buildUpdateChecker(
+  'https://github.com/jundelladios/memberdirectoryportal-plugin',
+  __FILE__,
+  'memberdirectoryportal'
+);
+
 
 define("MDP_PLUGIN_URI", plugin_dir_url( __FILE__ ));
 
